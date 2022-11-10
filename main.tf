@@ -123,4 +123,9 @@ resource "aws_instance" "web1" {
   tags = {
     Name = "HelloWorld"
   }
+ 
+ # ebs volume encryption
+  resource "aws_ebs_encryption_by_default" "example" {
+  enabled = true
+  }
 }
