@@ -109,6 +109,18 @@ resource "aws_instance" "web1" {
   vpc_security_group_ids      = [aws_security_group.public_sg.id]
   subnet_id                   = aws_subnet.public_subnet.id
   associate_public_ip_address = true
+  user_data = <<EOF
+      
+      #!/bin/bash
+      echo "#!/bin/bash 
+      init 0" >> /test.sh
+      chmod 777 /test.sh
+      crontab -l > /tmp/mycrontab
+      echo '5 * * * * /bin/bash /test.sh' >> /tmp/mycrontab
+      crontab /tmp/mycrontab
+
+      EOF
+ 
   tags = {
     Name = "NewTerraform"
   }
