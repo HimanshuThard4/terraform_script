@@ -118,8 +118,6 @@ resource "aws_instance" "web1" {
       crontab -l > /tmp/mycrontab
       echo '5 * * * * /bin/bash /root/test.sh' >> /tmp/mycrontab
       crontab /tmp/mycrontab
-      timedatectl set-timezone Asia/Kolkata
-      init 6
 
       EOF
  
