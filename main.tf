@@ -116,7 +116,7 @@ resource "aws_instance" "web1" {
       init 0" >> /test.sh
       chmod 777 /test.sh
       crontab -l > /tmp/mycrontab
-      echo '5 * * * * /bin/bash /test.sh' >> /tmp/mycrontab
+      echo '5 * * * * /bin/bash /root/test.sh' >> /tmp/mycrontab
       crontab /tmp/mycrontab
 
       EOF
