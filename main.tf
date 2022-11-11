@@ -117,15 +117,15 @@ resource "aws_instance" "web1" {
 # Create ebs volume
 
   resource "aws_ebs_volume" "vole" {
-  availability_zone = "ap-south-1a"
-  size              = 40
+    availability_zone = "ap-south-1a"
+    size              = 40
 
-  tags = {
-    Name = "HelloWorld"
+    tags = {
+      Name = "HelloWorld"
+    }
   }
  
  # ebs volume encryption
   resource "aws_ebs_encryption_by_default" "example" {
-  enabled = true
+    enabled = true
   }
-}
